@@ -1,15 +1,16 @@
 class EmployeeWage{
 	
 public static void main(String[] args) {
-		int IS_FULL_TIME = 1;
 
 		System.out.println("Welcome to Employee Wage Computation Program!");
-		double empCheck = Math.floor( Math.random() * 10 ) % 2;
+
+		int IS_FULL_TIME = 1;
+		
+		double empCheck = (int)( Math.random() * 10 ) % 2;
 		if ( empCheck == IS_FULL_TIME )
-			System.out.println("Present");
+			System.out.println("Employee is present");
 		else
-			System.out.println("Absent");	
-
+			System.out.println("Employee is Absent");	
+		
 	}
-
 }
