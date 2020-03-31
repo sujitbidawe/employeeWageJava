@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 interface wageComputation {
 	public void computeWage( CompanyEmpWage obj );
 }
@@ -39,14 +41,14 @@ public class EmployeeWage implements wageComputation{
 	public static void main(String[] args) {
 		System.out.println( "Welcome to Employee Wage Computation Program!" );
 		EmployeeWage employee = new EmployeeWage();
-		//Array of many CompanyEmpWage objects
-		CompanyEmpWage[] company = new CompanyEmpWage[2];
+		//ArrayList of many CompanyEmpWage objects
+		ArrayList<CompanyEmpWage> company = new ArrayList<CompanyEmpWage>();
 
-		company[0] = new CompanyEmpWage( "bridgelabz", 20, 20, 100 );
-		employee.computeWage( company[0] );
+		company.add( new CompanyEmpWage( "bridgelabz", 20, 20, 100 ));
+		employee.computeWage( company.get(0) );
 
-		company[1] = new CompanyEmpWage( "google", 25, 20, 80 );
-		employee.computeWage( company[1] );
+		company.add( new CompanyEmpWage( "google", 25, 20, 80 ));
+		employee.computeWage( company.get(1) );
 	}
 }
 
