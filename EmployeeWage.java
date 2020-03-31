@@ -1,4 +1,8 @@
-class EmployeeWage{
+interface wageComputation {
+	public void computeWage( CompanyEmpWage obj );
+}
+
+public class EmployeeWage implements wageComputation{
 	// Constants
 	final int IS_PART_TIME = 1;
 	final int IS_FULL_TIME = 2;
