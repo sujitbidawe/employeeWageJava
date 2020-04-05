@@ -42,10 +42,13 @@ public class EmployeeWage implements wageComputation{
 		empTotalWage = totalEmpHrs * companyEmp.getEmpRatePerHour();
 		empDailyAndTotalWage.add( empTotalWage );
 		companyEmp.setTotalEmpWage( empTotalWage );
-		System.out.println( "At " + companyEmp.getCompName() + " total wage of employee is " + companyEmp.getTotalEmpWage() );
 	}
 
-	public static void main(String[] args) {
+	public void totalWageDisplay( CompanyEmpWage companyEmp ) {
+			System.out.println( "At " + companyEmp.getCompName() + " total wage of employee is " + companyEmp.getTotalEmpWage() );
+	}
+
+		public static void main(String[] args) {
 		System.out.println( "Welcome to Employee Wage Computation Program!" );
 		EmployeeWage employee = new EmployeeWage();
 		//ArrayList of many CompanyEmpWage objects
@@ -53,10 +56,14 @@ public class EmployeeWage implements wageComputation{
 
 		company.add( new CompanyEmpWage( "bridgelabz", 20, 20, 100 ));
 		employee.computeWage( company.get(0) );
+		employee.totalWageDisplay(company.get(0));
 
 		company.add( new CompanyEmpWage( "google", 25, 20, 80 ));
 		employee.computeWage( company.get(1) );
-	}
+		employee.totalWageDisplay(company.get(1));
+
+
+		}
 }
 
 class CompanyEmpWage{
