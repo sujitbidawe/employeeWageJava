@@ -8,6 +8,8 @@ public class EmployeeWage implements wageComputation{
 	// Constants
 	final int IS_PART_TIME = 1;
 	final int IS_FULL_TIME = 2;
+
+	ArrayList<Integer> empDailyAndTotalWage = new ArrayList<Integer>();
 	
 	public void computeWage( CompanyEmpWage companyEmp ){
 		System.out.println("Welcome to "+ companyEmp.getCompName() );
@@ -15,6 +17,8 @@ public class EmployeeWage implements wageComputation{
 		int empHrs = 0;
 		int totalEmpHrs = 0;
 		int totalWorkingDays = 0;
+		int empDailyWage = 0;
+		int empTotalWage = 0;
 	
 		//computation
 		while ( totalEmpHrs <= companyEmp.getMaxHoursInMonth() && totalWorkingDays < companyEmp.getMaxNumberOfWorkingDays() ) {
@@ -31,11 +35,14 @@ public class EmployeeWage implements wageComputation{
 					empHrs = 0;
 			}
 			totalEmpHrs += empHrs;
+			empDailyWage = empHrs * companyEmp.getEmpRatePerHour();
+			empDailyAndTotalWage.add( empDailyWage );
 			System.out.println( "Day# " + totalWorkingDays + "--> Emp Hr: " +  empHrs );
 		}
-		companyEmp.setTotalEmpWage( totalEmpHrs * companyEmp.getEmpRatePerHour() );
-		System.out.println( "Total wage: " + companyEmp.getTotalEmpWage() );
-		System.out.println( "" );
+		empTotalWage = totalEmpHrs * companyEmp.getEmpRatePerHour();
+		empDailyAndTotalWage.add( empTotalWage );
+		companyEmp.setTotalEmpWage( empTotalWage );
+		System.out.println( "At " + companyEmp.getCompName() + " total wage of employee is " + companyEmp.getTotalEmpWage() );
 	}
 
 	public static void main(String[] args) {
